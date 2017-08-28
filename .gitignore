@@ -1,1 +1,9 @@
 .DS_Store
+
+# Eclipse Ignore
+.classpath
+.project
+.settings
+
+# Maven Ignore
+target
