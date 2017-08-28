@@ -1,0 +1,4 @@
+nomor_nasabah,nama_nasabah,email
+123,Endy Muhardin,endy@muhardin.com
+456,Wahyu Rizki,wahyu@gmail.com,
+789,Dadang Iswanto,dadang@gmail.com

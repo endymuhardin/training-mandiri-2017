@@ -22,12 +22,14 @@ public class Halo {
 		Nasabah.tampilkanJumlahNasabah();
 		//System.out.println(Nasabah.tampilkanJumlahNasabah());
 		
-		Nasabah n = new Nasabah("endy");
+		Nasabah n = new Nasabah();
+		n.setNama("Endy");
 		System.out.println("Halo " + n.getNama());
 		System.out.println("Jumlah nasabah : "+n.jumlahNasabah);
 		n.getNama();
 		
-		Nasabah n2 = new Nasabah("anggi");
+		Nasabah n2 = new Nasabah();
+		n2.setNama("anggi");
 		System.out.println("Halo " + n2.getNama());
 		System.out.println("Jumlah nasabah : "+n2.jumlahNasabah);
 		
