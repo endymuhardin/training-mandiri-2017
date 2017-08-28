@@ -49,3 +49,16 @@
 * Set classpath ke folder dan file jar (Windows)
 
         set CLASSPATH=c:/Users/endy/belajar;c:/Users/endy/training.jar
+
+## Class dan Object ##
+
+![Class dan Object](img/class-object.jpg)
+
+* Class : tipe data buatan sendiri
+* Why class?
+
+    * Membuat tipe data sesuai business process. Misal : `Nasabah`, `Rekening`, `Mutasi`, dsb
+    * Supaya kode program lebih mudah dipahami
+* Object : variabel yang dibuat dari class tersebut. Disebut juga dengan istilah `instance`
+* `static` : variabel/method yang terafiliasi dengan `class`
+* `instance xxx` : variabel/method yang terafiliasi dengan `object`

@@ -18,8 +18,23 @@ public class Halo {
 	public static void main(String[] x) {
 		System.out.println("Menjalankan method main");
 
+		System.out.println("Jumlah nasabah : "+ Nasabah.jumlahNasabah);
+		Nasabah.tampilkanJumlahNasabah();
+		//System.out.println(Nasabah.tampilkanJumlahNasabah());
+		
 		Nasabah n = new Nasabah("endy");
 		System.out.println("Halo " + n.getNama());
+		System.out.println("Jumlah nasabah : "+n.jumlahNasabah);
+		n.getNama();
+		
+		Nasabah n2 = new Nasabah("anggi");
+		System.out.println("Halo " + n2.getNama());
+		System.out.println("Jumlah nasabah : "+n2.jumlahNasabah);
+		
+		System.out.println("Nama nasabah 1 " + n.getNama()); // endy
+		System.out.println("Jumlah nasabah 1 : "+ Nasabah.jumlahNasabah); 
+		
+		Nasabah.tampilkanJumlahNasabah();
 	}
 
 }
