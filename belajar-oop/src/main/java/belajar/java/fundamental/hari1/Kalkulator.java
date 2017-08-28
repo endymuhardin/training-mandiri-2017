@@ -6,7 +6,7 @@ public class Kalkulator {
 		return a;
 	}
 	
-	public Integer kali() {
+	public Integer kali(Integer x, Integer y) {
 		return x * y;
 	}
 }
