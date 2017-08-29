@@ -146,3 +146,84 @@ Berbagai istilah:
 * Client code : object yang memanggil target object
 * Proxy : object palsu yang menggantikan target object untuk dipanggil client code
 * Weaving : proses merangkai proxy, advice, dan target object
+
+### Client Code ###
+
+```java
+public class DemoAopSpring {
+
+	public static void main(String[] args) {
+		ApplicationContext springContainer
+		= new ClassPathXmlApplicationContext("belajar-aop.xml");
+	
+		RekeningDao rd = springContainer.getBean(RekeningDao.class);
+		rd.simpan();
+	}
+
+}
+```
+
+### Target Object ###
+
+```java
+public class KoneksiDatabase {
+	private String url;
+	private String username;
+	private String password;
+	
+	public void connect() {
+		System.out.println("Connect ke database");
+	}
+}
+```
+
+### Advice ###
+
+```java
+@Component
+public class CekPermissionAdvice implements MethodInterceptor {
+
+	public Object invoke(MethodInvocation method) throws Throwable {
+		String namaMethod = method.getMethod().getName();
+		System.out.println("Memeriksa ijin akses untuk menjalankan method "+namaMethod);
+		Object hasil = method.proceed();
+		return hasil;
+	}
+```
+
+### Weaving by Spring ###
+
+```xml
+<bean id="koneksiDatabaseAsli" class="belajar.spring.ioc.KoneksiDatabase">
+		<property name="url" value="jdbc:postgresql://localhost/belajarspring"/>
+		<property name="username" value="springdemo"/>
+		<property name="password" value="cobaspring"/>
+	</bean>
+	
+	<bean id="koneksiDatabase2"
+          class="org.springframework.aop.framework.ProxyFactoryBean">
+    	 <property name="target" ref="koneksiDatabaseAsli"/>
+      <property name="interceptorNames">
+        <list>
+            <value>cekPermission</value> 
+            <value>auditLogAdvice</value>
+        </list>
+      </property>
+    </bean>
+    <!-- deklarasi object cekPermission melalui annotation @Component -->
+```
+
+### Output pada waktu dijalankan ###
+
+```
+Memeriksa ijin akses untuk menjalankan method connect
+Connect ke database
+Method connect dijalankan pada waktu Tue Aug 29 11:31:03 WIB 2017
+Memeriksa ijin akses untuk menjalankan method getUrl
+Method getUrl dijalankan pada waktu Tue Aug 29 11:31:03 WIB 2017
+Menyimpan data rekening ke database jdbc:postgresql://localhost/belajarspring
+```
+
+### Penjelasan Flow Jalannya Program ###
+
+![AOP Flow](img/aop-execution-flow.jpg)
