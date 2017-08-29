@@ -2,6 +2,18 @@
 
 * [Spring Framework Reference Manual](https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/)
 
+## Setup ##
+
+Tambahkan dependensi berikut di `pom.xml`
+
+```xml
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>4.3.10.RELEASE</version>
+    </dependency>
+```
+
 ## Inversion of Control ##
 
 ![Skema IOC](img/inversion-of-control.jpg)
