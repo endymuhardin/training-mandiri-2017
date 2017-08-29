@@ -126,3 +126,23 @@ public class DemoIocSpring {
 	
 </beans>
 ```
+
+## Aspect Oriented Programming ##
+
+![Konsep AOP](img/aop-concept.jpg)
+
+Berbagai istilah:
+
+* Cross cutting concern : masalah yang terjadi di semua fitur/proses bisnis. Misalnya transaction (begin/commit/rollback), cek permission, audit log
+* Aspect : solusi untuk mengatasi cross cutting concern
+* Advice : kode program yang mengimplementasikan cross cutting concern
+* Joinpoint : tempat untuk memasang advice
+* Pointcut : pattern/expression untuk memilih fitur yang akan dipasang joinpoint
+
+
+![Implementasi AOP](img/aop-implementation.jpg)
+
+* Target object : object asli yang menjalankan proses bisnis
+* Client code : object yang memanggil target object
+* Proxy : object palsu yang menggantikan target object untuk dipanggil client code
+* Weaving : proses merangkai proxy, advice, dan target object
