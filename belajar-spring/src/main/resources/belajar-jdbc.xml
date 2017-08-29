@@ -7,11 +7,22 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	    <property name="driverClassName" value="${database.driver}"/>
 	    <property name="url" value="${database.url}"/>
 	    <property name="username" value="${database.username}"/>
 	    <property name="password" value="${database.password}"/>
+	</bean>
+	-->
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+	    <property name="driverClassName" value="${database.driver}"/>
+	    <property name="url" value="${database.url}"/>
+	    <property name="username" value="${database.username}"/>
+	    <property name="password" value="${database.password}"/>
+	    <property name="maxWaitMillis" value="10000"/>
+	    <property name="maxTotal" value="80"/>
 	</bean>
 
 	<context:property-placeholder location="database.properties"/>
