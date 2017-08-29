@@ -11,6 +11,9 @@ public class DemoIocSpring {
 		
 		NasabahDaoIoc nasabahDao = (NasabahDaoIoc) springContainer.getBean("nd");
 		nasabahDao.simpan();
+		
+		RekeningDao rd = springContainer.getBean(RekeningDao.class);
+		rd.simpan();
 	}
 
 }

@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="koneksiDatabase2" class="belajar.spring.ioc.KoneksiDatabase">
+		<property name="url" value="jdbc:postgresql://localhost/demoioc"/>
+		<property name="username" value="demoioc"/>
+		<property name="password" value="cobaspring"/>
+	</bean>
 
 
 	<!-- 
@@ -16,7 +25,8 @@
 		<property name="username" value="springdemo"/>
 		<property name="password" value="cobaspring"/>
 	</bean>
-
+	
+	
 	<!-- 
 		NasabahDaoIoc nd = new NasabahDaoIoc(koneksiDatabase);
 	-->
@@ -24,4 +34,6 @@
 		<constructor-arg ref="koneksiDatabase" />
 	</bean>
 	
+	<!-- component scan, supaya tidak perlu deklarasi object satu persatu -->
+	<context:component-scan base-package="belajar.spring.ioc"/>
 </beans>

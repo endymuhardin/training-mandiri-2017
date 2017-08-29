@@ -23,7 +23,7 @@ public class NasabahDaoIoc {
 	
 	public void simpan() {
 		connect();
-		System.out.println("Menyimpan data");
+		System.out.println("Menyimpan data nasabah ke database "+koneksiDatabase.getUrl());
 		disconnect();
 	}
 	
