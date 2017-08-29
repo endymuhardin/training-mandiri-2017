@@ -3,4 +3,12 @@
   <groupId>id.co.bankmandiri.training</groupId>
   <artifactId>belajar-spring</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>4.3.10.RELEASE</version>
+    </dependency>
+  </dependencies>
 </project>

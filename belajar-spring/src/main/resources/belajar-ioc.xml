@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- 
+		KoneksiDatabase koneksiDatabase = new KoneksiDatabase();
+		koneksiDatabase.setUrl("jdbc:postgresql://localhost/belajar");
+		koneksiDatabase.setUsername("demo");
+		koneksiDatabase.setPassword("cobacoba");
+	-->
+	<bean id="koneksiDatabase" class="belajar.spring.ioc.KoneksiDatabase">
+		<property name="url" value="jdbc:postgresql://localhost/belajarspring"/>
+		<property name="username" value="springdemo"/>
+		<property name="password" value="cobaspring"/>
+	</bean>
+
+	<!-- 
+		NasabahDaoIoc nd = new NasabahDaoIoc(koneksiDatabase);
+	-->
+	<bean id="nd" class="belajar.spring.ioc.NasabahDaoIoc">
+		<constructor-arg ref="koneksiDatabase" />
+	</bean>
+	
+</beans>
