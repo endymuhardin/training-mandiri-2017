@@ -15,6 +15,7 @@ public class DemoInsertNasabah {
 		n.setEmail("tester990@contoh.com");
 		
 		NasabahDao nd = springContainer.getBean(NasabahDao.class);
-		nd.insert(n);
+		//nd.insert(n);
+		nd.insertTransaksi();
 	}
 }
