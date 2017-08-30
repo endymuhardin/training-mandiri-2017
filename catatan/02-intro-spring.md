@@ -23,14 +23,14 @@ Tambahkan dependensi berikut di `pom.xml`
 ```java
 public class NasabahDaoTanpaIoC {
 	private KoneksiDatabase koneksiDatabase;
-	
+
 	public NasabahDaoTanpaIoC() {
 		koneksiDatabase = new KoneksiDatabase();
 		koneksiDatabase.setUrl("jdbc:postgresql://localhost/belajar");
 		koneksiDatabase.setUsername("demo");
 		koneksiDatabase.setPassword("cobacoba");
 	}
-	
+
 	private void connect() {
 		koneksiDatabase.connect();
 	}
@@ -45,7 +45,7 @@ public class NasabahDaoTanpaIoC {
 public class NasabahDaoIoc {
 	// tidak ada inisialisasi, karena sudah dihandle orang lain
 	private KoneksiDatabase koneksiDatabase;
-	
+
 	public NasabahDaoIoc(KoneksiDatabase koneksiDatabase) {
 		this.koneksiDatabase = koneksiDatabase;
 	}
@@ -66,9 +66,9 @@ public class DemoIoc {
 		koneksiDatabase.setUrl("jdbc:postgresql://localhost/belajar");
 		koneksiDatabase.setUsername("demo");
 		koneksiDatabase.setPassword("cobacoba");
-		
+
 		NasabahDaoIoc nd = new NasabahDaoIoc(koneksiDatabase);
-		
+
 		nd.simpan();
 	}
 
@@ -87,7 +87,7 @@ public class DemoIocSpring {
 	public static void main(String[] args) {
 		ApplicationContext springContainer
 			= new ClassPathXmlApplicationContext("belajar-ioc.xml");
-		
+
 		NasabahDaoIoc nasabahDao = (NasabahDaoIoc) springContainer.getBean("nd");
 		nasabahDao.simpan();
 	}
@@ -105,7 +105,7 @@ public class DemoIocSpring {
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<!-- 
+	<!--
 		KoneksiDatabase koneksiDatabase = new KoneksiDatabase();
 		koneksiDatabase.setUrl("jdbc:postgresql://localhost/belajar");
 		koneksiDatabase.setUsername("demo");
@@ -117,13 +117,13 @@ public class DemoIocSpring {
 		<property name="password" value="cobaspring"/>
 	</bean>
 
-	<!-- 
+	<!--
 		NasabahDaoIoc nd = new NasabahDaoIoc(koneksiDatabase);
 	-->
 	<bean id="nd" class="belajar.spring.ioc.NasabahDaoIoc">
 		<constructor-arg ref="koneksiDatabase" />
 	</bean>
-	
+
 </beans>
 ```
 
@@ -155,7 +155,7 @@ public class DemoAopSpring {
 	public static void main(String[] args) {
 		ApplicationContext springContainer
 		= new ClassPathXmlApplicationContext("belajar-aop.xml");
-	
+
 		RekeningDao rd = springContainer.getBean(RekeningDao.class);
 		rd.simpan();
 	}
@@ -170,7 +170,7 @@ public class KoneksiDatabase {
 	private String url;
 	private String username;
 	private String password;
-	
+
 	public void connect() {
 		System.out.println("Connect ke database");
 	}
@@ -199,13 +199,13 @@ public class CekPermissionAdvice implements MethodInterceptor {
 		<property name="username" value="springdemo"/>
 		<property name="password" value="cobaspring"/>
 	</bean>
-	
+
 	<bean id="koneksiDatabase2"
           class="org.springframework.aop.framework.ProxyFactoryBean">
     	 <property name="target" ref="koneksiDatabaseAsli"/>
       <property name="interceptorNames">
         <list>
-            <value>cekPermission</value> 
+            <value>cekPermission</value>
             <value>auditLogAdvice</value>
         </list>
       </property>
@@ -227,3 +227,7 @@ Menyimpan data rekening ke database jdbc:postgresql://localhost/belajarspring
 ### Penjelasan Flow Jalannya Program ###
 
 ![AOP Flow](img/aop-execution-flow.jpg)
+
+## Transaction Propagation ##
+
+![Transaction Propagation](img/transaction-propagation.jpg)
