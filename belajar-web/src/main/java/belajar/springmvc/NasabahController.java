@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import belajar.spring.jdbc.NasabahDao;
 
@@ -21,5 +22,11 @@ public class NasabahController {
 	@GetMapping("/nasabah/form")
 	public void tampilkanForm() {
 		
+	}
+	
+	@PostMapping("/nasabah/form")
+	public String prosesForm() {
+		System.out.println("Memproses form input");
+		return "redirect:list";
 	}
 }
