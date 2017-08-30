@@ -7,6 +7,21 @@
 
 	<packaging>war</packaging>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<!-- library ini sudah ada di appserver, jangan ikut dibundle -->
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<finalName>belajar</finalName>
 		<plugins>
