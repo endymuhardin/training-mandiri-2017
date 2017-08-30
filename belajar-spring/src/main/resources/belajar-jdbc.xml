@@ -34,6 +34,6 @@
     
     <tx:annotation-driven proxy-target-class="true" />
 
-	<context:property-placeholder location="database.properties"/>
+	<context:property-placeholder location="classpath:database.properties"/>
 	<context:component-scan base-package="belajar.spring.jdbc"/>
 </beans>

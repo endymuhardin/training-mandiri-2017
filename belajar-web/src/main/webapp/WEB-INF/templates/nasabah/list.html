@@ -1,0 +1,27 @@
+<html>
+
+<head>
+<title>Daftar Nasabah</title>
+</head>
+
+<body>
+	<h1>Daftar Nasabah</h1>
+
+	<table>
+		<tr>
+			<th>Nomor</th>
+			<th>Nama</th>
+			<th>Email</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr th:each="n : ${dataNasabah}">
+			<td th:text="${n.nomor}">123</td>
+			<td th:text="${n.nama}">Endy</td>
+			<td th:text="${n.email}">endy@muhardin.com</td>
+			<td><a href="form">edit</a> <a href="view">detail</a></td>
+		</tr>
+	</table>
+
+</body>
+
+</html>

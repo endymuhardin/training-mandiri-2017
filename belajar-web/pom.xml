@@ -9,6 +9,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>id.co.bankmandiri.training</groupId>
+			<artifactId>belajar-spring</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.1.4</version>
@@ -18,7 +23,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.10.RELEASE</version>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring4</artifactId>

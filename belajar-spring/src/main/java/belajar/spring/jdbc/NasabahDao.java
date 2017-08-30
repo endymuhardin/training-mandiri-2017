@@ -3,10 +3,12 @@ package belajar.spring.jdbc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class NasabahDao {
 	private static final String SQL_INSERT = "insert into nasabah (nomor,nama,email) values (?,?,?)";
+	private static final String SQL_CARI_SEMUA = "select * from nasabah";
 	
 	@Autowired private DataSource dataSource;
 	
@@ -41,5 +44,11 @@ public class NasabahDao {
 		
 		jt.execute("insert into mutasi (nomor, nomor_rekening, waktu_transaksi, keterangan, debet, kredit) " + 
 				"values ('001','222', now(), 'Setoran Awal', 100000.00,0)");
+	}
+	
+	@Transactional
+	public List<Nasabah> cariSemuaNasabah(){
+		JdbcTemplate jt = new JdbcTemplate(dataSource);
+		return jt.query(SQL_CARI_SEMUA, new BeanPropertyRowMapper(Nasabah.class));
 	}
 }
