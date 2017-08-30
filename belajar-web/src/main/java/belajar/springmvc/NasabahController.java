@@ -17,4 +17,9 @@ public class NasabahController {
 		mm.addAttribute("dataNasabah", nasabahDao.cariSemuaNasabah());
 		return mm;
 	}
+	
+	@GetMapping("/nasabah/form")
+	public void tampilkanForm() {
+		
+	}
 }
