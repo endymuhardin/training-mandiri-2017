@@ -10,6 +10,7 @@ Key points :
 
 * Build : `mvn clean package`
 * Deploy : copy file `target/*.war` ke `[TOMCAT]/webapps`
+* Run (harus setup plugin cargo dulu) : `mvn clean package cargo:run`
 
 ## Referensi ##
 
