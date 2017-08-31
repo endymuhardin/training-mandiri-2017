@@ -13,6 +13,23 @@
 		<a th:href="@{/nasabah/form}" class="btn btn-primary">Tambah Data Nasabah</a>
 		<hr>
 		
+		<table class="table table-striped">
+			<tr>
+				<th>Nomor</th>
+				<th>Nama</th>
+				<th>Email</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr th:each="n : ${dataNasabah}">
+				<td th:text="${n.nomor}">123</td>
+				<td th:text="${n.nama}">Endy</td>
+				<td th:text="${n.email}">endy@muhardin.com</td>
+				<td>
+					<a class="btn" th:href="@{/app/nasabah/form}" >edit</a> 
+					<a class="btn" href="view">detail</a></td>
+			</tr>
+		</table>
+		
 	</section>
 </body>
 </html>
