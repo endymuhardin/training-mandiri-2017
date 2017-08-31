@@ -2,14 +2,14 @@
 
 * Penggunaan luas : web, mobile, desktop, background processing, dsb
 * Library
-* Ekosistem 
+* Ekosistem
 * Mature
 * Backward compatibility
 
 ## Kelengkapan coding Java ##
 
 * Java SDK
-* IDE 
+* IDE
 * Build Tools (Maven atau Gradle)
 
 ## Struktur Aplikasi Java ##
@@ -62,3 +62,10 @@
 * Object : variabel yang dibuat dari class tersebut. Disebut juga dengan istilah `instance`
 * `static` : variabel/method yang terafiliasi dengan `class`
 * `instance xxx` : variabel/method yang terafiliasi dengan `object`
+
+
+## Multi Threading ##
+
+* Eksekusi program dijalankan secara berbarengan. Tidak menunggu salah satu selesai dulu, baru yang satunya mulai.
+* [Video pemrograman multithreading](https://www.youtube.com/playlist?list=PL9oC_cq7OYbyUQvRrEFjTfcfsGAMthQhq)
+* [Contoh penggunaan multithreading dalam aplikasi chat](https://www.youtube.com/watch?v=Qn6xq6bDiv0)
