@@ -1,4 +1,4 @@
-package id.co.bankmandiri.ibank.internetbanking;
+package id.co.bankmandiri.internetbanking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
