@@ -25,7 +25,7 @@
 				<td th:text="${n.nomor}">123</td>
 				<td th:text="${n.nama}">Endy</td>
 				<td th:text="${n.email}">endy@muhardin.com</td>
-				<td><a class="btn" th:href="@{/app/nasabah/form}">edit</a> <a
+				<td><a class="btn" th:href="@{/nasabah/form(id=${n.id})}">edit</a> <a
 					class="btn" href="view">detail</a></td>
 			</tr>
 		</table>
