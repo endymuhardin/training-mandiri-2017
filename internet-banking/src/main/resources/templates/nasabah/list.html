@@ -9,27 +9,41 @@
 <body>
 	<section layout:fragment="content">
 		<h1>Daftar Nasabah</h1>
-		
-		<a th:href="@{/nasabah/form}" class="btn btn-primary">Tambah Data Nasabah</a>
+
+		<a th:href="@{/nasabah/form}" class="btn btn-primary">Tambah Data
+			Nasabah</a>
 		<hr>
-		
+
 		<table class="table table-striped">
 			<tr>
-				<th>Nomor</th>
-				<th>Nama</th>
-				<th>Email</th>
+				<th><a class="sorted" sd:pagination-sort="nomor" >Nomor</a></th>
+				<th><a class="sorted" sd:pagination-sort="nama" >Nama</a></th>
+				<th><a class="sorted" sd:pagination-sort="email" >Email</a></th>
 				<th>&nbsp;</th>
 			</tr>
 			<tr th:each="n : ${dataNasabah}">
 				<td th:text="${n.nomor}">123</td>
 				<td th:text="${n.nama}">Endy</td>
 				<td th:text="${n.email}">endy@muhardin.com</td>
-				<td>
-					<a class="btn" th:href="@{/app/nasabah/form}" >edit</a> 
-					<a class="btn" href="view">detail</a></td>
+				<td><a class="btn" th:href="@{/app/nasabah/form}">edit</a> <a
+					class="btn" href="view">detail</a></td>
 			</tr>
 		</table>
-		
+		<div class="row">
+			<div class="col-sm-6">
+				<div sd:pagination-summary="">info</div>
+			</div>
+			<div class="col-sm-6">
+				<nav class="pull-right">
+					<ul class="pagination" sd:pagination="full">
+						<!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+						<li class="disabled"><a href="#" aria-label="Previous"><span
+								aria-hidden="true">&laquo;</span></a></li>
+						<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 	</section>
 </body>
 </html>
